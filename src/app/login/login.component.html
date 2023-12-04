@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Registration Form</title>
+    
+</head>
+
+<link rel = "stylesheet" href = "login.component.css">
+
+<div class="side-menu">
+	<div class="brand-name">
+		<p>BUY IT</p>
+	</div>
+</div>
+<body>
+	<div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="user">
+					<p>Login Page</p>
+                </div>
+				<div class="user1">
+					<a routerLink="/home" routerLinkActive="active" class="btn1">Home</a>
+                </div>
+            </div>
+        </div>
+		<div class = "content">
+			<form class="login-email" [formGroup]="loginform" (ngSubmit)="login()">
+				<br>
+				<div class="input-group">
+					<input formControlName="username" type="text" placeholder="Username" name="username" required>
+				</div>
+				<div class="red">
+					<span class="text-danger" *ngIf="loginform.controls['username'].dirty && loginform.hasError('required','username') ">*Username is required</span>
+				</div>
+				<div class="input-group">
+					<input formControlName="password" type="password" placeholder="Password" name="password" required>
+				</div>
+				<div class="red">
+					<span class="text-danger" *ngIf="loginform.controls['password'].dirty && loginform.hasError('required','password') ">*Password is required</span>
+				</div>
+				<div class="input-group">
+					<input type="submit" class="btn">
+				</div>
+				<div class="login-text">Have an account? <a routerLink="/register">Register Here</a>.</div>
+			</form>
+		</div>
+		</div>
+</body>
+</html>
